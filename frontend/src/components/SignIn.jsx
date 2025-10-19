@@ -72,7 +72,7 @@ const SignIn = () => {
           </div>
           <div className="mt-4 text-center">
             <a
-              href="http://localhost:3000/auth/google"
+              href="https://amazon-app-mern-stack-experience-the-12di.onrender.com/auth/google"
               className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full block text-center text-lg"
             >
               Sign in with Google
