@@ -10,14 +10,19 @@ import cors from 'cors';
 const app = express();
 const port = process.env.PORT || 3000;
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://amazon-demo-web.netlify.app'
+];
+
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: allowedOrigins,
   credentials: true,
 }));
 
 app.use(
   session({
-    secret: 'keyboard cat', // Replace with a real secret
+    secret: process.env.SESSION_SECRET, // Replace with a real secret
     resave: false,
     saveUninitialized: false,
   })
