@@ -42,7 +42,7 @@ const PlaceOrderPage = () => {
         estimatedDeliveryDate: estimatedDeliveryDate,
       };
 
-      const response = await axios.post('/api/orders', orderDataWithDelivery, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/orders`, orderDataWithDelivery, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPlacedOrderDetails(response.data);

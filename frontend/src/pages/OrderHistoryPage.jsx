@@ -19,7 +19,7 @@ const OrderHistoryPage = () => {
           navigate('/login'); // Redirect to login if not authenticated
           return;
         }
-        const response = await axios.get('/api/orders/myorders', {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/orders/myorders`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setOrders(response.data);
