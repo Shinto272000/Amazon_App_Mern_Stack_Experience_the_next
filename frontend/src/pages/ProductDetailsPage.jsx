@@ -31,7 +31,7 @@ const ProductDetailsPage = () => {
         setMainImage(productResponse.data.imageUrls[0]);
 
         // Fetch reviews for the product
-        const reviewsResponse = await axios.get(`${import.meta.env.VITE_API_URL}/reviews/product/${id}`);
+        const reviewsResponse = await axios.get(`/api/reviews/product/${id}`);
         setReviews(reviewsResponse.data);
 
         setLoading(false);

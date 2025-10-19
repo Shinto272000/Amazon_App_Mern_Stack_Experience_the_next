@@ -22,7 +22,7 @@ export const CartProvider = ({ children }) => {
     try {
       const token = localStorage.getItem('token');
       if (token) {
-        const response = await axios.get(`${import.meta.env.VITE_API_URL}/cart`, {
+        const response = await axios.get(`/api/cart`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         dispatch({ type: 'SET_CART', payload: response.data });
@@ -35,7 +35,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = async (productId, quantity) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/cart`, 
+      const response = await axios.post(`/api/cart`, 
         { productId, quantity }, 
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -48,7 +48,7 @@ export const CartProvider = ({ children }) => {
   const updateCartItem = async (productId, quantity) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.put(`${import.meta.env.VITE_API_URL}/cart/${productId}`, 
+      const response = await axios.put(`/api/cart/${productId}`, 
         { quantity }, 
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -61,7 +61,7 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = async (productId) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.delete(`${import.meta.env.VITE_API_URL}/cart/${productId}`, 
+      const response = await axios.delete(`/api/cart/${productId}`, 
         { headers: { Authorization: `Bearer ${token}` } }
       );
       dispatch({ type: 'SET_CART', payload: response.data });
