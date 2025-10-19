@@ -32,7 +32,7 @@ router.get(
     const token = jwt.sign({ userId: req.user._id }, process.env.JWT_SECRET, {
       expiresIn: '1h',
     });
-    res.redirect(`https://amazon-demo-web.netlify.app/auth/google/callback?token=${token}&userId=${req.user._id}`);
+    res.redirect(`${process.env.FRONTEND_URL}/auth/google/callback?token=${token}&userId=${req.user._id}`);
   }
 );
 
