@@ -20,7 +20,10 @@ const transporter = nodemailer.createTransport({
 });
 
 // Google Auth
-router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+router.get('/google', (req, res, next) => {
+  console.log('Request host:', req.headers.host);
+  passport.authenticate('google', { scope: ['profile', 'email'] })(req, res, next);
+});
 
 router.get(
   '/google/callback',
